@@ -73,16 +73,17 @@ h1 {
     font-weight: 300;
 }
 
+/* Tối ưu Tabs để dàn đều 5 thẻ ngang hàng */
 .tabs {
     display: flex;
     border-bottom: 2px solid #e2e8f0;
     margin-top: 15px;
     gap: 4px;
-    flex-wrap: wrap; /* Cho phép rớt dòng nếu màn hình nhỏ */
 }
 
 .tab-button {
-    padding: 10px 20px;
+    flex: 1; /* Cho phép các tab tự động chia đều chiều ngang */
+    padding: 10px 5px;
     border: none;
     background: #eceff1;
     cursor: pointer;
@@ -90,9 +91,9 @@ h1 {
     border-top-right-radius: 8px;
     font-weight: 450;
     color: #607d8b;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
+    text-align: center;
     transition: all 0.25s ease;
-    flex: 1 1 auto;
 }
 
 .tab-button:hover {
@@ -216,6 +217,17 @@ tr:hover {
     font-weight: 600;
 }
 
+/* ===== CERTIFICATE IMAGE TỐI ƯU GỌN GÀNG ===== */
+.cert-image {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 10px auto 30px auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
 /* ===== BACK TO TOP ===== */
 .back-to-top {
     margin-top: 30px;
@@ -244,17 +256,6 @@ footer {
     line-height: 1.6;
 }
 
-/* ===== PDF CONTAINER ===== */
-.pdf-container {
-    width: 100%;
-    height: 75vh;
-    min-height: 600px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-    background: white;
-}
-
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -272,13 +273,13 @@ footer {
     .module-grid {
         grid-template-columns: 1fr;
     }
-    .tab-button {
-        padding: 10px 10px;
-        font-size: 0.82rem;
+    .tabs {
+        flex-wrap: wrap;
     }
-    .pdf-container {
-        height: 60vh;
-        min-height: 400px;
+    .tab-button {
+        flex: 1 1 45%;
+        padding: 10px 5px;
+        font-size: 0.82rem;
     }
 }
 </style>
@@ -326,7 +327,7 @@ window.onload = function () {
     "Free your mind, the best things will follow"
 </div>
 
-<!-- ĐÃ THÊM TAB CERTIFICATION VÀO ĐÂY -->
+<!-- ĐÃ CHỈNH LẠI ĐỂ 5 TAB NGANG HÀNG NHAU -->
 <div class="tabs">
     <button class="tab-button" onclick="openTab(event,'education_work')">🎓 Education & Experience</button>
     <button class="tab-button" onclick="openTab(event,'teaching_modules')">📘 Teaching Modules</button>
@@ -534,12 +535,12 @@ window.onload = function () {
     <div class="back-to-top"><a href="#top">↑ Back to Top</a></div>
 </div>
 
-<!-- ĐÂY LÀ PHẦN NỘI DUNG CỦA TAB CERTIFICATION MỚI -->
+<!-- NỘI DUNG CHỨNG CHỈ DẠNG ẢNH TRỰC QUAN -->
 <div id="certification" class="tab-content">
     <div class="section-title">📜 PR Certification</div>
-    <p class="info" style="margin-bottom: 15px;">Public Relations (PR) Certificate. If the document doesn't display automatically, you can <a href="Cert PR_17.pdf" target="_blank" style="color: #1e88e5; font-weight: bold;">click here to open it</a>.</p>
     
-    <iframe src="Cert PR_17.pdf" class="pdf-container" title="PR Certification"></iframe>
+    <!-- Lưu ý: Bạn cần chuyển file PDF sang đuôi ảnh .jpg hoặc .png để trình duyệt hiển thị đúng -->
+    <img src="Cert PR_17.jpg" alt="PR Certification" class="cert-image">
 
     <div class="back-to-top"><a href="#top">↑ Back to Top</a></div>
 </div>
