@@ -78,6 +78,7 @@ h1 {
     border-bottom: 2px solid #e2e8f0;
     margin-top: 15px;
     gap: 4px;
+    flex-wrap: wrap; /* Cho phép rớt dòng nếu màn hình nhỏ */
 }
 
 .tab-button {
@@ -91,6 +92,7 @@ h1 {
     color: #607d8b;
     font-size: 0.88rem;
     transition: all 0.25s ease;
+    flex: 1 1 auto;
 }
 
 .tab-button:hover {
@@ -188,25 +190,6 @@ tr:hover {
     position: absolute;
 }
 
-/* Cert Link Style */
-.cert-link {
-    display: inline-flex;
-    align-items: center;
-    background-color: #e3f2fd;
-    color: #1565c0;
-    padding: 4px 10px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-top: 4px;
-    transition: background-color 0.2s ease;
-}
-
-.cert-link:hover {
-    background-color: #bbdefb;
-}
-
 /* ===== GRID FOR GROUPS/PROJECTS ===== */
 .module-grid {
     display: grid;
@@ -261,6 +244,17 @@ footer {
     line-height: 1.6;
 }
 
+/* ===== PDF CONTAINER ===== */
+.pdf-container {
+    width: 100%;
+    height: 75vh;
+    min-height: 600px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    background: white;
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -278,13 +272,13 @@ footer {
     .module-grid {
         grid-template-columns: 1fr;
     }
-    .tabs {
-        flex-wrap: wrap;
-    }
     .tab-button {
-        flex: 1 1 auto;
-        padding: 10px 15px;
-        font-size: 0.85rem;
+        padding: 10px 10px;
+        font-size: 0.82rem;
+    }
+    .pdf-container {
+        height: 60vh;
+        min-height: 400px;
     }
 }
 </style>
@@ -332,11 +326,13 @@ window.onload = function () {
     "Free your mind, the best things will follow"
 </div>
 
+<!-- ĐÃ THÊM TAB CERTIFICATION VÀO ĐÂY -->
 <div class="tabs">
     <button class="tab-button" onclick="openTab(event,'education_work')">🎓 Education & Experience</button>
     <button class="tab-button" onclick="openTab(event,'teaching_modules')">📘 Teaching Modules</button>
     <button class="tab-button" onclick="openTab(event,'publications')">📄 Publications & Research</button>
     <button class="tab-button" onclick="openTab(event,'activities')">🏆 Academic Activities</button>
+    <button class="tab-button" onclick="openTab(event,'certification')">📜 Certification</button>
 </div>
 
 <div id="education_work" class="tab-content">
@@ -450,9 +446,6 @@ window.onload = function () {
     <ul class="bullet-list">
         <li><strong>Certificate in Pedagogy for University and College Lecturers</strong> – Hanoi Pedagogical University 2, 2023 <span style="color: #2e7d32; font-weight: 600;">(Excellent)</span>.</li>
         <li><strong>Postgraduate Certificate in Theory and Methodology of English Language Teaching</strong> – Ho Chi Minh City Open University, 2023 <span style="color: #2e7d32; font-weight: 600;">(Very Good)</span>.</li>
-        <li><strong>PR Certification</strong> <br>
-            <a href="Cert PR_17.pdf" target="_blank" class="cert-link">📄 View PR Certificate (PDF)</a>
-        </li>
         <li><strong>Languages:</strong> Native Vietnamese; Professional English for teaching & research; Intermediate Chinese.</li>
         <li><strong>Core Skills:</strong> Lesson design, instructional material development, student assessment, academic writing, conference presentations, LMS, digital tools, and AI tools integration in teaching.</li>
     </ul>
@@ -537,6 +530,16 @@ window.onload = function () {
             Surpassed numerous ideas to win <span style="color: #e65100; font-weight: 600;">Second Prize</span> at the <em>TEC2021</em> innovative startup competition (co-organized by the People's Committee of Binh Duong Province).
         </li>
     </ul>
+
+    <div class="back-to-top"><a href="#top">↑ Back to Top</a></div>
+</div>
+
+<!-- ĐÂY LÀ PHẦN NỘI DUNG CỦA TAB CERTIFICATION MỚI -->
+<div id="certification" class="tab-content">
+    <div class="section-title">📜 PR Certification</div>
+    <p class="info" style="margin-bottom: 15px;">Public Relations (PR) Certificate. If the document doesn't display automatically, you can <a href="Cert PR_17.pdf" target="_blank" style="color: #1e88e5; font-weight: bold;">click here to open it</a>.</p>
+    
+    <iframe src="Cert PR_17.pdf" class="pdf-container" title="PR Certification"></iframe>
 
     <div class="back-to-top"><a href="#top">↑ Back to Top</a></div>
 </div>
