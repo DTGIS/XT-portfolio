@@ -217,15 +217,76 @@ tr:hover {
     font-weight: 600;
 }
 
-/* ===== CERTIFICATE IMAGE TỐI ƯU GỌN GÀNG ===== */
-.cert-image {
+/* ===== CHỨNG CHỈ (GRID + THUMBNAILS) ===== */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 ảnh 1 hàng */
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.cert-thumb {
     width: 100%;
-    max-width: 800px;
-    display: block;
-    margin: 10px auto 30px auto;
+    height: 180px;
+    object-fit: cover;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-thumb:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== MODAL (KHUNG PHÓNG TO ẢNH) ===== */
+.modal {
+    display: none; /* Ẩn mặc định */
+    position: fixed;
+    z-index: 9999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85); /* Nền đen mờ */
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.9); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+    text-decoration: none;
 }
 
 /* ===== BACK TO TOP ===== */
@@ -281,6 +342,12 @@ footer {
         padding: 10px 5px;
         font-size: 0.82rem;
     }
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 ảnh 1 hàng trên mobile */
+    }
+    .modal-content {
+        width: 95%;
+    }
 }
 </style>
 
@@ -298,6 +365,27 @@ function openTab(evt, tabName) {
 
     document.getElementById(tabName).classList.add("active");
     evt.currentTarget.classList.add("active");
+}
+
+// Chức năng mở Modal xem ảnh lớn
+function openLightbox(src) {
+    const modal = document.getElementById("certModal");
+    const modalImg = document.getElementById("modalImage");
+    modal.style.display = "block";
+    modalImg.src = src;
+}
+
+// Chức năng đóng Modal
+function closeLightbox() {
+    document.getElementById("certModal").style.display = "none";
+}
+
+// Đóng modal khi click ra ngoài vùng ảnh
+window.onclick = function(event) {
+    const modal = document.getElementById("certModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 window.onload = function () {
@@ -327,7 +415,6 @@ window.onload = function () {
     "Free your mind, the best things will follow"
 </div>
 
-<!-- ĐÃ CHỈNH LẠI ĐỂ 5 TAB NGANG HÀNG NHAU -->
 <div class="tabs">
     <button class="tab-button" onclick="openTab(event,'education_work')">🎓 Education & Experience</button>
     <button class="tab-button" onclick="openTab(event,'teaching_modules')">📘 Teaching Modules</button>
@@ -535,12 +622,23 @@ window.onload = function () {
     <div class="back-to-top"><a href="#top">↑ Back to Top</a></div>
 </div>
 
-<!-- NỘI DUNG CHỨNG CHỈ DẠNG ẢNH TRỰC QUAN -->
+<!-- NỘI DUNG CHỨNG CHỈ LƯỚI + CHỨC NĂNG PHÓNG TO -->
 <div id="certification" class="tab-content">
-
+    <div class="section-title">📜 Academic & Professional Certificates</div>
     
-    <!-- Lưu ý: Bạn cần chuyển file PDF sang đuôi ảnh .jpg hoặc .png để trình duyệt hiển thị đúng -->
-    <img src="CertPR_17.png" alt="PR Certification" class="cert-image">
+    <!-- Lưới chứa các chứng chỉ (4 ảnh/hàng) -->
+    <div class="cert-grid">
+        <img src="CertPR_17.png" alt="PR Certification" class="cert-thumb" onclick="openLightbox(this.src)">
+        <img src="FILE 53.jpg" alt="Certification 53" class="cert-thumb" onclick="openLightbox(this.src)">
+        <!-- Bạn có thể copy dòng dưới dán thêm nhiều lần nếu có thêm ảnh -->
+        <!-- <img src="TEN_FILE_ANH.jpg" alt="Tên chứng chỉ" class="cert-thumb" onclick="openLightbox(this.src)"> -->
+    </div>
+
+    <!-- Hộp thoại mờ mờ hiện lên khi click ảnh -->
+    <div id="certModal" class="modal">
+        <span class="close-modal" onclick="closeLightbox()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
     <div class="back-to-top"><a href="#top">↑ Back to Top</a></div>
 </div>
