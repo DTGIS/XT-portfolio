@@ -15,8 +15,8 @@
     :root {
         --primary-color: #1e88e5;
         --primary-hover: #1565c0;
-        --text-main: #2c3e50;
-        --text-muted: #546e7a;
+        --text-main: #000000; /* Đen tuyền */
+        --text-muted: #333333; /* Xám đậm, rất rõ nét */
         --bg-body: #f8f9fa;
         --bg-card: #ffffff;
         --border-color: #e2e8f0;
@@ -54,10 +54,14 @@
     .avatar-container img {
         height: 220px;
         width: 220px;
-        border-radius: 50%; /* Trông chuyên nghiệp hơn với ảnh tròn hoặc bo góc sâu */
+        border-radius: 50%;
         border: 4px solid white;
         box-shadow: 0 8px 16px rgba(0,0,0,0.08);
         object-fit: cover;
+        
+        /* ĐÃ THÊM DÒNG NÀY ĐỂ TRÁNH MẤT ĐẦU */
+        object-position: top; 
+        /* Ghi chú: Nếu 'top' kéo xuống hơi quá đà, bạn có thể đổi thành 'object-position: center 15%;' để tinh chỉnh nhé */
     }
 
     .intro {
@@ -67,7 +71,7 @@
     h1 { 
         font-size: 2.2rem;
         margin: 0 0 10px 0; 
-        color: #1a252f; 
+        color: #000000; /* Đen tuyền */
         font-weight: 700;
         letter-spacing: -0.5px;
     }
@@ -83,7 +87,7 @@
         text-align: center;
         font-style: italic;
         margin-bottom: 35px;
-        color: #455a64;
+        color: #000000; /* Đen tuyền */
         font-size: 1.1rem;
         font-weight: 400;
     }
@@ -94,7 +98,7 @@
         border-bottom: 2px solid var(--border-color);
         margin-top: 15px;
         gap: 6px;
-        flex-wrap: wrap; /* Hỗ trợ rớt dòng trên mobile */
+        flex-wrap: wrap; 
     }
 
     .tab-button {
@@ -107,12 +111,12 @@
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
         font-weight: 500;
-        color: #78909c;
+        color: #333333; /* Xám đậm thay vì nhạt */
         font-size: 0.9rem;
         text-align: center;
         transition: all var(--transition-speed) ease;
         position: relative;
-        bottom: -2px; /* Đè lên border bottom */
+        bottom: -2px; 
     }
 
     .tab-button:hover {
@@ -146,7 +150,7 @@
     .section-title {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #34495e;
+        color: #000000; /* Đen tuyền */
         margin: 40px 0 20px;
         border-bottom: 2px solid var(--border-color);
         padding-bottom: 8px;
@@ -168,11 +172,11 @@
         width: 100%;
         border-collapse: collapse;
         background: var(--bg-card);
-        white-space: nowrap; /* Tránh vỡ chữ trên mobile */
+        white-space: nowrap; 
     }
 
     @media (min-width: 768px) {
-        table { white-space: normal; } /* Trả lại bình thường trên desktop */
+        table { white-space: normal; } 
     }
 
     table, th, td {
@@ -183,12 +187,12 @@
         padding: 16px;
         text-align: left;
         font-size: 0.95rem;
+        color: #000000; /* Chữ trong bảng đen tuyền */
     }
 
     th {
         background-color: #f8fafc;
-        color: #4a5568;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     tr:hover {
@@ -205,7 +209,7 @@
         position: relative;
         padding-left: 24px;
         margin-bottom: 14px;
-        color: #4a5568;
+        color: #000000; /* Chữ danh sách đen tuyền */
         font-size: 0.98rem;
     }
 
@@ -232,7 +236,7 @@
         box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         border: 1px solid var(--border-color);
         font-size: 0.95rem;
-        color: #4a5568;
+        color: #000000; /* Đen tuyền */
         transition: transform var(--transition-speed) ease;
     }
 
@@ -283,7 +287,7 @@
     .cert-caption {
         margin-top: 12px;
         font-size: 0.9rem;
-        color: #4a5568;
+        color: #000000; /* Đen tuyền */
         font-weight: 500;
         text-align: center;
         display: -webkit-box;
@@ -532,7 +536,7 @@
                     <td><strong>Master of Arts in Theory and Methodology of English Language Teaching</strong></td>
                     <td>Edith Cowan University, Australia</td>
                     <td>03/2022 - 10/2024</td>
-                    <td>GPA: 3.528/4<br><span style="color: #607d8b; font-size: 0.88rem;">Thesis: Applying Role-Play Techniques to Enhance English Spoken Fluency for Vietnamese Children</span></td>
+                    <td>GPA: 3.528/4<br><span style="color: #333333; font-size: 0.88rem;">Thesis: Applying Role-Play Techniques to Enhance English Spoken Fluency for Vietnamese Children</span></td>
                 </tr>
                 <tr>
                     <td><strong>MBA Student</strong></td>
@@ -646,28 +650,28 @@
     <div class="section-title">📄 Publications & Conference Proceedings</div>
     <ul class="bullet-list">
         <li>
-            <strong style="color: #2c3e50;">Integrating CRM and LMS for Recruitment and Management in English Centers: A Practical Digital Transformation Model</strong> (2025). <br>
-            <span style="color: #546e7a; font-size: 0.9rem;">2025 Scientific Conference: “Application of Digital Technology in Scientific Development and Innovation” - Thu Dau Mot University. ISBN: 978-604-72-8844-1.</span>
+            <strong>Integrating CRM and LMS for Recruitment and Management in English Centers: A Practical Digital Transformation Model</strong> (2025). <br>
+            <span style="color: #333333; font-size: 0.9rem;">2025 Scientific Conference: “Application of Digital Technology in Scientific Development and Innovation” - Thu Dau Mot University. ISBN: 978-604-72-8844-1.</span>
         </li>
         <li>
-            <strong style="color: #2c3e50;">Technology Acceptance of Green Digital Transformation in English Language Teaching</strong> (2025). <br>
-            <span style="color: #546e7a; font-size: 0.9rem;">2025 Institutional Scientific Conference - Binh Duong University. ISBN: 978-632-03-1255-9.</span>
+            <strong>Technology Acceptance of Green Digital Transformation in English Language Teaching</strong> (2025). <br>
+            <span style="color: #333333; font-size: 0.9rem;">2025 Institutional Scientific Conference - Binh Duong University. ISBN: 978-632-03-1255-9.</span>
         </li>
         <li>
-            <strong style="color: #2c3e50;">The Impact of Generative AI on English Learning Attitudes and Effectiveness</strong> (2025). <br>
-            <span style="color: #546e7a; font-size: 0.9rem;">Conference on “From Digital Transformation to Open Digital Ecosystem: A Sustainable Strategic Direction for Universities and Colleges in the Current Era”. ISBN: 978-604-42-5201-8.</span>
+            <strong>The Impact of Generative AI on English Learning Attitudes and Effectiveness</strong> (2025). <br>
+            <span style="color: #333333; font-size: 0.9rem;">Conference on “From Digital Transformation to Open Digital Ecosystem: A Sustainable Strategic Direction for Universities and Colleges in the Current Era”. ISBN: 978-604-42-5201-8.</span>
         </li>
         <li>
-            <strong style="color: #2c3e50;">Developing Digital Pedagogical Competence of University Lecturers Through an In-house Training Model Combined with Online Learning Communities</strong> (2025). <br>
-            <span style="color: #546e7a; font-size: 0.9rem;">Conference on “Enhancing Teaching and Scientific Research Capabilities of University and College Lecturers in the Digital Age”. ISBN: 978-632-615-205-0.</span>
+            <strong>Developing Digital Pedagogical Competence of University Lecturers Through an In-house Training Model Combined with Online Learning Communities</strong> (2025). <br>
+            <span style="color: #333333; font-size: 0.9rem;">Conference on “Enhancing Teaching and Scientific Research Capabilities of University and College Lecturers in the Digital Age”. ISBN: 978-632-615-205-0.</span>
         </li>
         <li>
-            <strong style="color: #2c3e50;">TDMU Third-Year English-Majored Students’ Difficulties in Interpreting English-Vietnamese Spoken Texts and Solutions</strong> (2024). <br>
-            <span style="color: #546e7a; font-size: 0.9rem;">The 2nd Vietnam Global Young Scientists Conference. ISBN: 978-604-43-1089.</span>
+            <strong>TDMU Third-Year English-Majored Students’ Difficulties in Interpreting English-Vietnamese Spoken Texts and Solutions</strong> (2024). <br>
+            <span style="color: #333333; font-size: 0.9rem;">The 2nd Vietnam Global Young Scientists Conference. ISBN: 978-604-43-1089.</span>
         </li>
         <li>
-            <strong style="color: #2c3e50;">Lacquer in Binh Duong in International Integration Process 2015-2019 through Lacquer Practice in Tuong Binh Hiep Village</strong> (2022). <br>
-            <span style="color: #546e7a; font-size: 0.9rem;">Global Young Scientists Conference. ISBN: 978-604-341-907-8.</span>
+            <strong>Lacquer in Binh Duong in International Integration Process 2015-2019 through Lacquer Practice in Tuong Binh Hiep Village</strong> (2022). <br>
+            <span style="color: #333333; font-size: 0.9rem;">Global Young Scientists Conference. ISBN: 978-604-341-907-8.</span>
         </li>
     </ul>
 
@@ -698,7 +702,7 @@
 <div id="activities" class="tab-content">
     <div class="section-title">🎙️ Academic Conferences (Role: Moderator)</div>
     <ul class="bullet-list">
-        <li><strong>Academic Moderator (Session 4: Entrepreneurship and General Management)</strong> - PACSB 2025 International Conference <br><span style="color: #546e7a; font-size: 0.9rem;">Theme: “Sustainability Meets Innovation: The Emerging Trend in Business Education”.</span></li>
+        <li><strong>Academic Moderator (Session 4: Entrepreneurship and General Management)</strong> - PACSB 2025 International Conference <br><span style="color: #333333; font-size: 0.9rem;">Theme: “Sustainability Meets Innovation: The Emerging Trend in Business Education”.</span></li>
         <li><strong>Academic Moderator</strong> - The 2nd International Conference on Emerging Technologies for Energy and Environment (ICETE2-2026).</li>
     </ul>
 
@@ -742,8 +746,8 @@
 </div>
 
 <footer>
-    <div style="font-weight: 600; color: #1a252f; margin-bottom: 4px;">© 2026 Phạm Thị Xuân Trúc | Academic Portfolio</div>
-    <div style="color: #78909c;">Email: xuantrucpham0907@gmail.com</div>
+    <div style="font-weight: 600; color: #000000; margin-bottom: 4px;">© 2026 Phạm Thị Xuân Trúc | Academic Portfolio</div>
+    <div style="color: #333333;">Email: xuantrucpham0907@gmail.com</div>
 </footer>
 
 </body>
