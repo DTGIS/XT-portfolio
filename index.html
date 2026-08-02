@@ -58,10 +58,7 @@
         border: 4px solid white;
         box-shadow: 0 8px 16px rgba(0,0,0,0.08);
         object-fit: cover;
-        
-        /* ĐÃ THÊM DÒNG NÀY ĐỂ TRÁNH MẤT ĐẦU */
-        object-position: top; 
-        /* Ghi chú: Nếu 'top' kéo xuống hơi quá đà, bạn có thể đổi thành 'object-position: center 15%;' để tinh chỉnh nhé */
+        object-position: top; /* Căn trọng tâm ảnh lên phía trên để không mất đầu */
     }
 
     .intro {
@@ -394,6 +391,19 @@
         border-top: 1px solid var(--border-color);
         padding-top: 30px;
         padding-bottom: 20px;
+    }
+
+    /* Bộ đếm lượt truy cập */
+    .visitor-counter {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .visitor-counter img {
+        height: 25px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     /* Mobile Responsive */
@@ -748,6 +758,11 @@
 <footer>
     <div style="font-weight: 600; color: #000000; margin-bottom: 4px;">© 2026 Phạm Thị Xuân Trúc | Academic Portfolio</div>
     <div style="color: #333333;">Email: xuantrucpham0907@gmail.com</div>
+    
+    <!-- Huy hiệu đếm lượt truy cập -->
+    <div class="visitor-counter">
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ftrucpham-portfolio.github.io&count_bg=%231e88e5&title_bg=%23333333&icon=&icon_color=%23E7E7E7&title=L%C6%B0%E1%BB%A3t+truy+c%E1%BA%ADp&edge_flat=false" alt="Visitor Count">
+    </div>
 </footer>
 
 </body>
