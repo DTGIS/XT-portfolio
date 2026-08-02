@@ -219,10 +219,10 @@
         top: 8px;
     }
 
-    /* Modules Grid */
+    /* Modules Grid - ÉP CỐ ĐỊNH KHUNG 2x2 */
     .module-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, 1fr); /* 2 Cột bằng nhau */
         gap: 20px;
     }
 
@@ -423,6 +423,7 @@
         }
         .tab-button { flex: 1 1 45%; font-size: 0.85rem; }
         .cert-grid { grid-template-columns: repeat(2, 1fr); }
+        .module-grid { grid-template-columns: 1fr; } /* Ép về 1 cột trên điện thoại để dễ đọc */
         .prev, .next { width: 45px; height: 45px; font-size: 20px; }
         .prev { left: 10px; }
         .next { right: 10px; }
