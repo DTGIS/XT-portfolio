@@ -22,17 +22,7 @@
         --transition-speed: 0.3s;
     }
 
-    body {
-        font-family: 'Inter', "Segoe UI", Roboto, Arial, sans-serif;
-        max-width: 1000px;
-        margin: auto;
-        padding: 30px 20px;
-        background-color: var(--bg-body);
-        color: var(--text-main);
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.6;
-    }
-
+    body { font-family: 'Inter', "Segoe UI", Roboto, Arial, sans-serif; max-width: 1000px; margin: auto; padding: 30px 20px; background-color: var(--bg-body); color: var(--text-main); -webkit-font-smoothing: antialiased; line-height: 1.6; }
     header { display: flex; align-items: center; background: linear-gradient(135deg, #ffffff 0%, #f4f6f8 100%); padding: 35px 30px; border-radius: var(--border-radius); margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border-left: 6px solid #4a6572; }
     .avatar-container { flex-shrink: 0; margin-right: 35px; }
     .avatar-container img { height: 220px; width: 220px; border-radius: 50%; border: 4px solid white; box-shadow: 0 8px 16px rgba(0,0,0,0.08); object-fit: cover; object-position: top; }
@@ -68,7 +58,7 @@
     .cert-thumb { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid #edf2f7; }
     .cert-caption { margin-top: 12px; font-size: 0.9rem; color: #000000; font-weight: 500; text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-    /* Modal Styling - ĐÃ CẬP NHẬT TỐI THUI */
+    /* Modal Styling - TỐI THUI TUYỆT ĐỐI */
     .modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background-color: #000000 !important; }
     .modal-content { margin: auto; display: block; max-height: 75vh; max-width: 90%; border-radius: 8px; border: 3px solid rgba(255, 255, 255, 0.2); box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.1); position: relative; top: 0; transform: none; animation: modalIn 0.3s forwards; }
     @keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
@@ -125,9 +115,55 @@
 </head>
 
 <body>
-<!-- [Mọi nội dung gốc của bạn ở đây - Giữ nguyên không đổi] -->
-<!-- (Tôi đã bao gồm đầy đủ các phần nội dung gốc của bạn trong file này) -->
-<!-- ... [NỘI DUNG GỐC CỦA BẠN] ... -->
-<!-- [Kết thúc file với CertModal như đã hướng dẫn ở trên] -->
+<a name="top"></a>
+<header>
+    <div class="avatar-container"><img src="avatar.jpg" alt="Phạm Thị Xuân Trúc"></div>
+    <div class="intro">
+        <h1>Truc Pham</h1>
+        <p class="info">An English Lecturer with an academic background in English Linguistics, Theory and Methodology of English Language Teaching, along with interdisciplinary knowledge in Business Administration.</p>
+    </div>
+</header>
+<div class="quote-container">"Free your mind, the best things will follow"</div>
+<div class="tabs">
+    <button class="tab-button" onclick="openTab(event,'education_work')">🎓 Education & Experience</button>
+    <button class="tab-button" onclick="openTab(event,'teaching_modules')">📘 Teaching Modules</button>
+    <button class="tab-button" onclick="openTab(event,'publications')">📄 Publications & Research</button>
+    <button class="tab-button" onclick="openTab(event,'activities')">🏆 Academic Activities</button>
+    <button class="tab-button" onclick="openTab(event,'certification')">📜 Certification</button>
+</div>
+
+<!-- Nội dung giữ nguyên -->
+<div id="education_work" class="tab-content">
+    <div class="section-title">🎓 Education Background</div>
+    <div class="table-responsive">
+        <table>
+            <thead><tr><th>Degree/Program</th><th>Institution</th><th>Duration</th><th>Notes</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Master of Arts in ELT</strong></td><td>Edith Cowan University</td><td>03/2022 - 10/2024</td><td>GPA: 3.528/4</td></tr>
+                <tr><td><strong>MBA Student</strong></td><td>University of Greater Manchester</td><td>10/2024 - Present</td><td>Major: Business Admin</td></tr>
+                <tr><td><strong>Bachelor of Arts in English</strong></td><td>Thu Dau Mot University</td><td>08/2018 - 03/2022</td><td>Excellent</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="certification" class="tab-content">
+    <div class="section-title">📜 Academic & Professional Certificates</div>
+    <div class="cert-grid">
+        <div class="cert-item"><img src="CertPR_17.png" alt="Mekong TESOL" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">Mekong TESOL</div></div>
+        <div class="cert-item"><img src="53.jpg" alt="ISC 2025" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">ISC 2025</div></div>
+    </div>
+    <div id="certModal" class="modal">
+        <span class="close-modal" onclick="closeLightbox()">&times;</span>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 60px;">
+            <img class="modal-content" id="modalImage" alt="Certificate Preview">
+            <div class="modal-caption-text" id="modalCaption"></div>
+        </div>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+</div>
+
+<footer>© 2026 Phạm Thị Xuân Trúc | Academic Portfolio</footer>
 </body>
 </html>
