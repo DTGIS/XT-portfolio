@@ -9,25 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
     :root { --primary-color: #1e88e5; --text-main: #000000; --text-muted: #333333; --bg-body: #f8f9fa; --bg-card: #ffffff; --border-color: #e2e8f0; --border-radius: 10px; --transition-speed: 0.3s; }
-    body { font-family: 'Inter', sans-serif; max-width: 1000px; margin: auto; padding: 30px 20px; background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
+    body { font-family: 'Inter', "Segoe UI", Roboto, Arial, sans-serif; max-width: 1000px; margin: auto; padding: 30px 20px; background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; }
     header { display: flex; align-items: center; background: linear-gradient(135deg, #ffffff 0%, #f4f6f8 100%); padding: 35px 30px; border-radius: var(--border-radius); margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); border-left: 6px solid #4a6572; }
     .avatar-container { flex-shrink: 0; margin-right: 35px; }
-    .avatar-container img { height: 220px; width: 220px; border-radius: 50%; border: 4px solid white; box-shadow: 0 8px 16px rgba(0,0,0,0.08); object-fit: cover; }
+    .avatar-container img { height: 220px; width: 220px; border-radius: 50%; border: 4px solid white; box-shadow: 0 8px 16px rgba(0,0,0,0.08); object-fit: cover; object-position: top; }
     h1 { font-size: 2.2rem; margin: 0 0 10px 0; color: #000000; font-weight: 700; }
     .info { text-align: justify; color: var(--text-muted); }
     .quote-container { text-align: center; font-style: italic; margin-bottom: 35px; color: #000000; font-size: 1.1rem; }
     .tabs { display: flex; border-bottom: 2px solid var(--border-color); gap: 6px; flex-wrap: wrap; }
-    .tab-button { padding: 12px 15px; border: none; background: transparent; cursor: pointer; font-weight: 500; color: #333333; transition: all 0.3s; }
+    .tab-button { padding: 12px 20px; border: none; background: transparent; cursor: pointer; font-weight: 500; color: #333333; transition: all 0.3s; }
     .tab-button.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); font-weight: 600; }
     .tab-content { display: none; margin-top: 30px; }
     .tab-content.active { display: block; }
     .section-title { font-size: 1.25rem; font-weight: 700; color: #000000; margin: 40px 0 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; }
-    .table-responsive { width: 100%; overflow-x: auto; margin-bottom: 25px; }
-    table { width: 100%; border-collapse: collapse; background: #fff; }
-    th, td { border: 1px solid #edf2f7; padding: 16px; text-align: left; }
-    th { background-color: #f8fafc; }
-    .module-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .module-item { background: #fff; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; }
     .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
     .cert-thumb { width: 100%; height: 150px; object-fit: cover; cursor: pointer; border-radius: 6px; }
     /* MODAL TỐI THUI */
@@ -64,84 +58,30 @@
         <div class="avatar-container"><img src="avatar.jpg" alt="Phạm Thị Xuân Trúc"></div>
         <div class="intro">
             <h1>Truc Pham</h1>
-            <p class="info">An English Lecturer with an academic background in English Linguistics, Theory and Methodology of English Language Teaching, along with interdisciplinary knowledge in Business Administration. Experienced in teaching at language centers and higher education institutions, with the capability to handle modules in Language Skills, Linguistics, Business English, English for Specific Purposes (ESP) and Translation.</p>
+            <p class="info">An English Lecturer with an academic background in English Linguistics, Theory and Methodology of English Language Teaching, along with interdisciplinary knowledge in Business Administration.</p>
         </div>
     </header>
-    <div class="quote-container">"Free your mind, the best things will follow"</div>
+
     <div class="tabs">
-        <button class="tab-button" onclick="openTab(event,'education_work')">🎓 Education & Experience</button>
-        <button class="tab-button" onclick="openTab(event,'teaching_modules')">📘 Teaching Modules</button>
-        <button class="tab-button" onclick="openTab(event,'publications')">📄 Publications & Research</button>
-        <button class="tab-button" onclick="openTab(event,'activities')">🏆 Academic Activities</button>
         <button class="tab-button" onclick="openTab(event,'certification')">📜 Certification</button>
-    </div>
-
-    <div id="education_work" class="tab-content">
-        <div class="section-title">🎓 Education Background</div>
-        <div class="table-responsive">
-            <table>
-                <tr><th>Degree/Program</th><th>Institution</th><th>Duration</th><th>Notes</th></tr>
-                <tr><td>Master of Arts in ELT</td><td>Edith Cowan University</td><td>03/2022 - 10/2024</td><td>GPA: 3.528/4. Thesis: Applying Role-Play.</td></tr>
-                <tr><td>MBA Student</td><td>University of Greater Manchester</td><td>10/2024 - Present</td><td>Major: Business Administration</td></tr>
-                <tr><td>Bachelor of Arts in English Linguistics</td><td>Thu Dau Mot University</td><td>08/2018 - 03/2022</td><td>Excellent</td></tr>
-                <tr><td>Bachelor of Arts in Chinese Linguistics</td><td>Hue University</td><td>05/2026 - Present</td><td>Major: Chinese Linguistics</td></tr>
-            </table>
-        </div>
-        <div class="section-title">💼 Teaching & Working Experience</div>
-        <div class="table-responsive">
-            <table>
-                <tr><th>Duration</th><th>Position</th><th>Institution</th><th>Responsibilities</th></tr>
-                <tr><td>09/2025 - Present</td><td>English Lecturer</td><td>Dong Nai Technology University</td><td>Teaching modules; assessments.</td></tr>
-                <tr><td>09/2025 - Present</td><td>Visiting Lecturer</td><td>Binh Duong University</td><td>Supporting department activities.</td></tr>
-                <tr><td>07/2023 - 09/2025</td><td>English Teacher</td><td>CIE Europe English Center</td><td>Lesson design; tracking progress.</td></tr>
-                <tr><td>01/2022 - 06/2023</td><td>English Teacher</td><td>LEA Inter-Euro-America</td><td>Teaching; lesson plans.</td></tr>
-                <tr><td>02/2020 - 04/2022</td><td>Teaching Assistant</td><td>REC Reflex English Center</td><td>Tutoring communication.</td></tr>
-            </table>
-        </div>
-    </div>
-
-    <div id="teaching_modules" class="tab-content">
-        <div class="section-title">🧭 Teaching Module Groups</div>
-        <div class="module-grid">
-            <div class="module-item"><strong>🗣️ Language Skills</strong><p>Listening, Speaking, Reading, Writing, Communicative English, Academic English.</p></div>
-            <div class="module-item"><strong>🔤 Linguistics</strong><p>Introduction to Linguistics, English-Vietnamese translation.</p></div>
-            <div class="module-item"><strong>💼 Business English</strong><p>Business English, ESP, Intercultural communication.</p></div>
-            <div class="module-item"><strong>🛠️ Pedagogical Tools</strong><p>Lesson design, LMS, AI tools integration.</p></div>
-        </div>
-    </div>
-
-    <div id="publications" class="tab-content">
-        <div class="section-title">📄 Publications & Research</div>
-        <ul>
-            <li>Integrating CRM and LMS for Recruitment (2025)</li>
-            <li>Technology Acceptance of Green Digital Transformation (2025)</li>
-            <li>Impact of Generative AI on Learning Effectiveness (2025)</li>
-            <li>Developing Digital Pedagogical Competence (2025)</li>
-            <li>Difficulties in Interpreting Spoken Texts (2024)</li>
-            <li>Lacquer in Binh Duong Integration (2022)</li>
-        </ul>
-    </div>
-
-    <div id="activities" class="tab-content">
-        <div class="section-title">🏆 Academic Activities</div>
-        <ul><li>Academic Moderator at PACSB 2025.</li><li>Academic Moderator at ICETE2-2026.</li><li>Startup Awards: F-PRINT (Second Prize), Financial Education Assistant (Second Prize).</li></ul>
     </div>
 
     <div id="certification" class="tab-content">
         <div class="section-title">📜 Academic & Professional Certificates</div>
         <div class="cert-grid">
-            <div class="cert-item"><img src="CertPR_17.png" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">Mekong TESOL</div></div>
-            <div class="cert-item"><img src="53.jpg" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">ISC 2025</div></div>
-            <div class="cert-item"><img src="Neust.jpg" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">ONE ASEAN</div></div>
-            <div class="cert-item"><img src="sameo.png" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">17th TESOL</div></div>
+            <div class="cert-item"><img src="CertPR_17.png" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">5th Mekong TESOL International Conference</div></div>
+            <div class="cert-item"><img src="53.jpg" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">ISC 2025: PROMOTING SCIENTIFIC RESEARCH</div></div>
+            <div class="cert-item"><img src="Neust.jpg" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">ONE ASEAN: Bridging Borders</div></div>
+            <div class="cert-item"><img src="sameo.png" class="cert-thumb" onclick="openLightbox(this)"><div class="cert-caption">17th International Conference on TESOL</div></div>
         </div>
-        <div id="certModal" class="modal" style="flex-direction: column; justify-content: center; align-items: center;">
-            <span class="close-modal" onclick="closeLightbox()">&times;</span>
-            <a class="prev" onclick="change(-1)">&#10094;</a>
-            <img class="modal-content" id="modalImage">
-            <div class="modal-caption-text" id="modalCaption"></div>
-            <a class="next" onclick="change(1)">&#10095;</a>
-        </div>
+    </div>
+
+    <div id="certModal" class="modal" style="flex-direction: column; justify-content: center; align-items: center;">
+        <span class="close-modal" onclick="closeLightbox()">&times;</span>
+        <a class="prev" onclick="change(-1)">&#10094;</a>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption-text" id="modalCaption"></div>
+        <a class="next" onclick="change(1)">&#10095;</a>
     </div>
 </body>
 </html>
