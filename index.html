@@ -503,27 +503,8 @@
     });
 
     window.onload = function () {
-    if (window.location.hash === "#certification") {
-
-        // Ẩn tất cả tab
-        document.querySelectorAll(".tab-content").forEach(function (content) {
-            content.classList.remove("active");
-        });
-
-        // Bỏ active tất cả nút
-        document.querySelectorAll(".tab-button").forEach(function (button) {
-            button.classList.remove("active");
-        });
-
-        // Hiện Certification
-        document.getElementById("certification").classList.add("active");
-
-        // Active nút Certification
-        document.querySelectorAll(".tab-button").forEach(function (button) {
-            if (button.getAttribute("onclick").includes("'certification'")) {
-                button.classList.add("active");
-            }
-        });
+    document.querySelector(".tab-button").click();
+};
 
     } else {
         // Mặc định mở tab đầu tiên
