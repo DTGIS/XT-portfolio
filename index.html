@@ -503,8 +503,12 @@
     });
 
     window.onload = function () {
+    if (window.location.hash === "#certification") {
+        document.querySelector('.tab-button[onclick*="certification"]').click();
+    } else {
         document.querySelector(".tab-button").click();
-    };
+    }
+};
 </script>
 </head>
 
