@@ -299,32 +299,34 @@
 
     /* Modal */
     .modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    overflow: hidden;
-}
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        overflow: hidden;
+    }
 
     .modal-content {
-        margin: auto;
-        display: block;
-        max-height: 80vh;
-        max-width: 90%;
-        border-radius: 8px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        position: relative;
+        position: absolute;
         top: 50%;
-        transform: translateY(-50%) scale(0.95);
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         animation: modalIn 0.3s forwards;
     }
 
     @keyframes modalIn {
-        to { transform: translateY(-50%) scale(1); opacity: 1; }
+        to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     }
 
     .modal-caption-text {
@@ -745,7 +747,7 @@
         </div>
         <div class="cert-item">
             <img src="53.jpg" alt="ISC 2025" class="cert-thumb" onclick="openLightbox(this)">
-            <div class="cert-caption">INTERNATIONAL SCIENTIFIC CONFERENCE ISC 2025</div>
+            <div class="cert-caption">INTERNATIONAL SCIENTIFIC CONFERENCE ISC 2025: PROMOTING SCIENTIFIC RESEARCH FOR THE GREEN REVOLUTION</div>
         </div>
         <div class="cert-item">
             <img src="Neust.jpg" alt="ISC 2025" class="cert-thumb" onclick="openLightbox(this)">
@@ -757,13 +759,6 @@
         </div>
     </div>
 
-    <div id="certModal" class="modal">
-        <span class="close-modal" onclick="closeLightbox()">&times;</span>
-        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-        <img class="modal-content" id="modalImage" alt="Certificate Preview">
-        <div class="modal-caption-text" id="modalCaption"></div>
-        <a class="next" onclick="changeSlide(1)">&#10095;</a>
-    </div>
 
     <div class="back-to-top"><a href="#top">↑ Back to Top</a></div>
 </div>
@@ -772,6 +767,16 @@
     <!--<div class="visitor-counter">
         <img src="<a https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fdtgis.github.io%2FXT-portfolio%2F&count_bg=%2379C83D&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>" alt="Visitor Count">
     </div>-->
+
+    <!-- Fullscreen Certificate Lightbox -->
+    <div id="certModal" class="modal">
+        <span class="close-modal" onclick="closeLightbox()">&times;</span>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <img class="modal-content" id="modalImage" alt="Certificate Preview">
+        <div class="modal-caption-text" id="modalCaption"></div>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
 <footer>
     <div style="font-weight: 600; color: #000000; margin-bottom: 4px;">© 2026 Phạm Thị Xuân Trúc | Academic Portfolio</div>
     <div style="color: #333333;">Email: xuantrucpham0907@gmail.com</div>
